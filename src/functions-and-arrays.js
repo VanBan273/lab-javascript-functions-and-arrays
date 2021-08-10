@@ -1,19 +1,57 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(firstNum, secondNum){
+  if (firstNum > secondNum) {
+    return(firstNum);
+  } 
+  if (firstNum < secondNum) {
+    return(secondNum);
+  }  
+  else if (firstNum === secondNum) {
+   return(firstNum); 
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord() {
+  let maxLength = 0;
+  let longestWord = '';
+
+  if(words.length == 0){
+    return null; 
+  }
+
+  for(let i = 0; i < words.length; i++){
+    if(words[i].length > maxLength){
+      maxLength = words[i].length;
+      longestWord = words[i];
+    }
+  }
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+
+  let result = 0 
+
+  if (!arr.length){
+    return 0;
+  }
+   else if(!arr,length === 1){
+     return arr [0]
+   }
+   arr.forEach(function(number){
+     result += number
+    });
+    return result
+}
 
 
 
@@ -26,13 +64,27 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers() {
+  let sum = 0;
+
+  if(numbersAvg.length == 0){
+    return null; 
+  }
+
+  for (var i = 0; i < numbersAvg.length; i++){
+    sum += numbersAvg[i];
+  }
+  return sum/numbersAvg.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(){
+ 
+} 
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -52,7 +104,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray() {
+  let uniquifyArray = [];
+
+  if(wordsUnique.length == 0){
+    return null; 
+  }
+
+  for(i=0; i < wordsUniquify.length; i++){ if(uniquifyeArray.indexOf(wordsUniquify[i]) === -1) {
+    uniquifyArray.push(wordsUniquify[i]);
+  }
+}
+return uniquifyArray;
+}
+
 
 
 
