@@ -82,6 +82,10 @@ function averageNumbers() {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(){
+
+
+
+  
  
 } 
 
