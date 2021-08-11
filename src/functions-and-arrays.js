@@ -15,86 +15,113 @@ function maxOfTwoNumbers(firstNum, secondNum){
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {
+function findLongestWord(wordsArray) {
+  let arrayLength = wordsArray.length;
+  if (arrayLength > 0){
+
   let maxLength = 0;
   let longestWord = '';
-
-  if(words.length == 0){
-    return null; 
-  }
-
-  for(let i = 0; i < words.length; i++){
-    if(words[i].length > maxLength){
-      maxLength = words[i].length;
-      longestWord = words[i];
+  
+for (let i = 0; i < wordsArray.length; i++) {
+     if (wordsArray[i].length > maxLength){
+       maxLength = wordsArray[i].length;
+       longestWord = wordsArray[i];
+     }
     }
+     return longestWord;
+    } else {
+      return null;
+    } 
   }
-  return longestWord;
-}
+   
+  
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers(arr) {
+function sumNumbers(number) {
 
   let result = 0 
 
-  if (!arr.length){
+  if (number.length === 0){
     return 0;
   }
-   else if(!arr,length === 1){
-     return arr [0]
-   }
-   arr.forEach(function(number){
-     result += number
-    });
-    return result
+   else if(number.length === 1){
+     return number [0]}
+     else{
+       for(let i = 0;i<number.length;i++){
+         result = result + number[i]
+       }
+     }
+  
+    return result;
+}
+
+// Iteration #3.1 Bonus:
+const  mixedArr  =  [ 6 ,  12 ,  'miami' ,  1 ,  true ,  'barca' ,  '200' ,  'lisboa' ,  8 ,  10 ] ;
+function sum(mixedArr) {
+  if(mixedArr.length === 0){
+    return 0
+  }
+  let sum = 0
+
+  mixedArr.forEach(element => {
+    if (element === true){
+      sum += 1
+    } else if (element === false){
+      sum += 0
+    } else if (typeof element === "string"){
+      sum += element.length
+    } else if (typeof element === "number"){
+      sum += element
+    } else if (typeof element === "object" || Array.isArray(element) === true){
+      throw new Error ("Unsupported data type sir or ma'am")
+    }
+  })
+  return sum
 }
 
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
-
-
-
-// Iteration #4: Calculate the average
+// Iteration #4: Calculate the average     <----------- Me da este error: "should return null if receives an empty array when called" que no sé resolver
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
-  let sum = 0;
-
-  if(numbersAvg.length == 0){
-    return null; 
-  }
-
-  for (var i = 0; i < numbersAvg.length; i++){
-    sum += numbersAvg[i];
-  }
-  return sum/numbersAvg.length;
+function averageNumbers(arrOfNum) {
+  let total = 0
+  arrOfNum.forEach(currentNumber => {
+    total += currentNumber
+  })
+  return total/arrOfNum.length
+  
 }
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength(){
+function averageWordLength(wordsArr){
+  let sum = 0;
+  let wordLengths = []; 
+  if(wordsArr.length == 0){
+    return null; 
+  }
 
-
+  for (let i=0; i < wordsArr.length; i++){
+    sum += wordsArr[i].length;
+  }
+  return sum/wordsArr.length;
+}
 
   
- 
-} 
 
 
 // Bonus - Iteration #4.1
 function avg() {}
 
 // Iteration #5: Unique arrays
-const wordsUnique = [
+const wordsUniquify = [
   'crab',
   'poison',
   'contagious',
@@ -108,14 +135,14 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {
+function uniquifyArray(wordsUniquify) {
   let uniquifyArray = [];
 
-  if(wordsUnique.length == 0){
+  if(wordsUniquify.length === 0){
     return null; 
   }
 
-  for(i=0; i < wordsUniquify.length; i++){ if(uniquifyeArray.indexOf(wordsUniquify[i]) === -1) {
+  for(i = 0; i < wordsUniquify.length; i++){ if(uniquifyArray.indexOf(wordsUniquify[i]) === -1) {
     uniquifyArray.push(wordsUniquify[i]);
   }
 }
@@ -125,10 +152,20 @@ return uniquifyArray;
 
 
 
-// Iteration #6: Find elements
+// Iteration #6: Find elements    <------- me falta que devuelva false si la palabra buscada no está en el array pero no sé en que fallo.
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, serchWord) {
+   if (wordsFind.length === 0){
+     return null;
+   }
+   for (i = 0; i < wordsFind.length; i++){
+     if (wordsFind [i] === serchWord);{
+       return true;
+     } 
+   }
+   
+}
 
 
 
@@ -147,7 +184,13 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, value){
+  let num = 0;
+  for (i = 0; i < wordsCount.length; i++){
+    if(wordsCount[i] == value) {num++}
+  }
+  return num;
+}
 
 
 
@@ -197,3 +240,4 @@ if (typeof module !== 'undefined') {
     greatestProduct
   };
 }
+
